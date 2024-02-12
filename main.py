@@ -21,7 +21,7 @@ function hourmark():
     pass
     
 IF time.minute % 5 AND time.minute != 0:
-    display ADSB
+    display ADSB (for 30 seconds). Information retrieved from https://openskynetwork.github.io/opensky-api/rest.html
 ELSEIF time.minute == 0:
     display hourmark()
 ELSE:

@@ -1,7 +1,6 @@
 import time
 from machine import UART, Pin
 
-
 def byte_to_ascii(number):
     hex_str = hex(int(number))[2:]
     hex_str = '0' + hex_str if len(hex_str) == 1 else hex_str
@@ -25,11 +24,11 @@ def write_to_display(address, resolution, to_be_sent, uart):
 
     footer += checksum(header, data)
 
-    packet = f'{header}{data}{footer}'
+    packet = f'{header}{data}{footer}'.encode()
     uart.write(packet)
 
 # Definitions
-uart = machine.UART(1, baudrate=9600)
+uart = machine.UART(0, baudrate=9600)
 ADDRESS = 5
 ROWS = 7
 COLUMNS = 56
